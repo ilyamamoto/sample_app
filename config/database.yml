@@ -6,15 +6,15 @@
 #
 default: &default
   adapter: postgresql
-	encoding: unicode
+  host: localhost
+  encoding: unicode
   pool: 5
   timeout: 5000
-	password:
+  password:
 
 development:
   <<: *default
-	database: static_pages_development
-	host: localhost
+  database: static_pages_development
 
 
 # Warning: The database defined as "test" will be erased and
@@ -28,3 +28,4 @@ test:
 production:
   <<: *default
   database: static_pages_production
+
