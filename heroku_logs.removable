@@ -1,0 +1,101 @@
+2014-06-06T06:23:20.535504+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.0.5/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+2014-06-06T06:23:20.535512+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+2014-06-06T06:23:20.535507+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+2014-06-06T06:23:20.535510+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.0.5/lib/action_dispatch/middleware/static.rb:64:in `call'
+2014-06-06T06:23:20.535516+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+2014-06-06T06:23:20.535517+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+2014-06-06T06:23:20.535509+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.0.5/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+2014-06-06T06:23:20.535475+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+2014-06-06T06:23:20.535485+00:00 app[web.1]: 
+2014-06-06T06:23:20.535506+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+2014-06-06T06:23:20.535522+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+2014-06-06T06:23:20.535524+00:00 app[web.1]: 
+2014-06-06T06:23:20.535519+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+2014-06-06T06:23:20.535520+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+2014-06-06T06:23:20.535523+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+2014-06-06T06:23:20.535526+00:00 app[web.1]: 
+2014-06-06T06:23:21.538390+00:00 heroku[router]: at=info method=GET path=/ host=frozen-badlands-3499.herokuapp.com request_id=bd7b6076-99f2-4e1d-a40d-d2ede93a173d fwd="118.87.231.188" dyno=web.1 connect=2ms service=10ms status=304 bytes=837
+2014-06-06T06:23:21.515100+00:00 app[web.1]: Processing by StaticPagesController#home as HTML
+2014-06-06T06:23:21.516175+00:00 app[web.1]:   Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+2014-06-06T06:23:21.516188+00:00 app[web.1]:   Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+2014-06-06T06:23:21.516982+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2014-06-06T06:23:21.517359+00:00 app[web.1]:   Rendered layouts/_header.html.erb (0.3ms)
+2014-06-06T06:23:21.517364+00:00 app[web.1]:   Rendered layouts/_header.html.erb (0.3ms)
+2014-06-06T06:23:21.517844+00:00 app[web.1]: Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+2014-06-06T06:23:21.513453+00:00 app[web.1]: Started GET "/" for 118.87.231.188 at 2014-06-06 06:23:21 +0000
+2014-06-06T06:23:21.517859+00:00 app[web.1]: Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+2014-06-06T06:23:21.513463+00:00 app[web.1]: Started GET "/" for 118.87.231.188 at 2014-06-06 06:23:21 +0000
+2014-06-06T06:23:21.517667+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.2ms)
+2014-06-06T06:23:21.515095+00:00 app[web.1]: Processing by StaticPagesController#home as HTML
+2014-06-06T06:23:21.516987+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2014-06-06T06:23:21.517662+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.2ms)
+2014-06-06T06:23:21.861656+00:00 heroku[router]: at=info method=GET path=/images/rails.png host=frozen-badlands-3499.herokuapp.com request_id=69340648-eb44-48d3-90dc-7fa99e984623 fwd="118.87.231.188" dyno=web.1 connect=27ms service=17ms status=404 bytes=1829
+2014-06-06T06:23:21.828847+00:00 app[web.1]: Started GET "/images/rails.png" for 118.87.231.188 at 2014-06-06 06:23:21 +0000
+2014-06-06T06:23:21.830923+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/images/rails.png"):
+2014-06-06T06:23:21.830920+00:00 app[web.1]: 
+2014-06-06T06:23:21.830930+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.0.5/lib/rails/rack/logger.rb:20:in `block in call'
+2014-06-06T06:23:21.830925+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.0.5/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2014-06-06T06:23:21.830926+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.0.5/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+2014-06-06T06:23:21.828858+00:00 app[web.1]: Started GET "/images/rails.png" for 118.87.231.188 at 2014-06-06 06:23:21 +0000
+2014-06-06T06:23:21.830928+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.0.5/lib/rails/rack/logger.rb:38:in `call_app'
+2014-06-06T06:23:21.830933+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.0.5/lib/active_support/tagged_logging.rb:26:in `tagged'
+2014-06-06T06:23:21.830937+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.0.5/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+2014-06-06T06:23:21.830934+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.0.5/lib/active_support/tagged_logging.rb:68:in `tagged'
+2014-06-06T06:23:21.830936+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.0.5/lib/rails/rack/logger.rb:20:in `call'
+2014-06-06T06:23:21.830945+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+2014-06-06T06:23:21.830931+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.0.5/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+2014-06-06T06:23:21.830939+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+2014-06-06T06:23:21.830946+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.0.5/lib/rails/engine.rb:511:in `call'
+2014-06-06T06:23:21.830943+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.0.5/lib/action_dispatch/middleware/static.rb:64:in `call'
+2014-06-06T06:23:21.830969+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+2014-06-06T06:23:21.830965+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+2014-06-06T06:23:21.830968+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+2014-06-06T06:23:21.830940+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+2014-06-06T06:23:21.830942+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.0.5/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+2014-06-06T06:23:21.830966+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+2014-06-06T06:23:21.830975+00:00 app[web.1]: 
+2014-06-06T06:23:21.830948+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.0.5/lib/rails/application.rb:97:in `call'
+2014-06-06T06:23:21.830988+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/images/rails.png"):
+2014-06-06T06:23:21.830973+00:00 app[web.1]: 
+2014-06-06T06:23:21.830971+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+2014-06-06T06:23:21.830987+00:00 app[web.1]: 
+2014-06-06T06:23:21.830972+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+2014-06-06T06:23:21.830991+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.0.5/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+2014-06-06T06:23:21.830990+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.0.5/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2014-06-06T06:23:21.830994+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.0.5/lib/rails/rack/logger.rb:20:in `block in call'
+2014-06-06T06:23:21.830997+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.0.5/lib/active_support/tagged_logging.rb:26:in `tagged'
+2014-06-06T06:23:21.830995+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.0.5/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+2014-06-06T06:23:21.830992+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.0.5/lib/rails/rack/logger.rb:38:in `call_app'
+2014-06-06T06:23:21.831004+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+2014-06-06T06:23:21.830999+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.0.5/lib/rails/rack/logger.rb:20:in `call'
+2014-06-06T06:23:21.831007+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.0.5/lib/action_dispatch/middleware/static.rb:64:in `call'
+2014-06-06T06:23:21.831002+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+2014-06-06T06:23:21.831001+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.0.5/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+2014-06-06T06:23:21.831005+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.0.5/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+2014-06-06T06:23:21.830998+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.0.5/lib/active_support/tagged_logging.rb:68:in `tagged'
+2014-06-06T06:23:21.831020+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+2014-06-06T06:23:21.831009+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.0.5/lib/rails/engine.rb:511:in `call'
+2014-06-06T06:23:21.831024+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+2014-06-06T06:23:21.831018+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.0.5/lib/rails/application.rb:97:in `call'
+2014-06-06T06:23:21.831008+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+2014-06-06T06:23:21.831025+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+2014-06-06T06:23:21.831021+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+2014-06-06T06:23:21.831027+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+2014-06-06T06:23:21.831023+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+2014-06-06T06:23:21.831028+00:00 app[web.1]: 
+2014-06-06T06:23:21.831029+00:00 app[web.1]: 
+2014-06-06T06:25:57.192817+00:00 heroku[router]: at=info method=GET path=/signup host=frozen-badlands-3499.herokuapp.com request_id=dc9bb97a-df80-49e1-94a8-64194c4cc509 fwd="118.87.231.188" dyno=web.1 connect=0ms service=10ms status=304 bytes=843
+2014-06-06T06:25:57.161617+00:00 app[web.1]: Started GET "/signup" for 118.87.231.188 at 2014-06-06 06:25:57 +0000
+2014-06-06T06:25:57.161627+00:00 app[web.1]: Started GET "/signup" for 118.87.231.188 at 2014-06-06 06:25:57 +0000
+2014-06-06T06:25:57.163568+00:00 app[web.1]: Processing by UsersController#new as HTML
+2014-06-06T06:25:57.164630+00:00 app[web.1]:   Rendered users/new.html.erb within layouts/application (0.1ms)
+2014-06-06T06:25:57.164636+00:00 app[web.1]:   Rendered users/new.html.erb within layouts/application (0.1ms)
+2014-06-06T06:25:57.163575+00:00 app[web.1]: Processing by UsersController#new as HTML
+2014-06-06T06:25:57.165818+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2014-06-06T06:25:57.166477+00:00 app[web.1]:   Rendered layouts/_header.html.erb (0.4ms)
+2014-06-06T06:25:57.165862+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2014-06-06T06:25:57.166536+00:00 app[web.1]:   Rendered layouts/_header.html.erb (0.4ms)
+2014-06-06T06:25:57.166853+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.2ms)
+2014-06-06T06:25:57.166860+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.2ms)
+2014-06-06T06:25:57.167134+00:00 app[web.1]: Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+2014-06-06T06:25:57.167171+00:00 app[web.1]: Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
