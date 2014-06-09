@@ -50,3 +50,4 @@ gem 'pry-rails'
 gem 'pry-debugger'
 gem 'pry-doc'
 
+gem 'launchy'
