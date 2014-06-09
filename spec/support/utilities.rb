@@ -19,7 +19,6 @@ RSpec::Matchers.define :have_success_message do |message|
 end
 
 def sign_in(user, options={})
-#	binding.pry
 	if options[:no_capybara]
 		remember_token = User.new_remember_token
 		cookies[:remember_token] = remember_token

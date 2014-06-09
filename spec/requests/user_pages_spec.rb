@@ -68,7 +68,9 @@ describe "User pages" do
 		let(:user) { FactoryGirl.create(:user) }
 		before { 
 			sign_in user
+			save_and_open_page
 			visit edit_user_path(user) 
+			save_and_open_page
 		}
 
 		describe "page" do
