@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "User pages" do
 	subject { page }
+	before(:all) { 30.times { FactoryGirl.create(:user) } }
+	after(:all)  { User.delete_all }
 
 	describe "index" do
 		let(:user) { FactoryGirl.create(:user) }
@@ -43,8 +45,20 @@ describe "User pages" do
 					end.to change(User, :count).by(-1)
 				end
 				it { should_not have_link('delete', href: user_path(admin)) }
-
 			end
+			
+			describe "forbid admin user to destroy himself" do
+				let(:admin) { FactoryGirl.create(:admin) }
+				before do
+					sign_in admin, no_capybara: true
+				end
+				it do
+					expect do
+						delete user_path(admin)
+					end.to change(User, :count).by(0)
+				end
+			end
+
 		end
 
 	end
@@ -61,6 +75,7 @@ describe "User pages" do
 
 		it { should have_content('Sign up') }
 		it { should have_title(full_title('Sign up')) }
+		it { should_not use_patch_method }
 
 		let(:submit) { "Create my account" }
 		
@@ -107,8 +122,28 @@ describe "User pages" do
 				it { should have_success_message('Welcome') } 
 			end
 		end
-
   end
+
+	describe "restrictions for users already signed-in" do
+		let(:user) { FactoryGirl.create(:user) }
+		before { sign_in user, no_capybara: true }
+
+		describe "GET access to /users/new (signup page) banned" do
+			before { get signup_path }
+			specify { expect(response).to redirect_to(root_path) }
+		end
+
+		describe "POST access to /users banned" do
+			let(:params) { { user: {
+				name: "test user",
+				email: "test@example.com",
+				password: "foobar",
+				password_confirmation: "foobar"
+			} } }
+			before { post users_path, params }
+			specify { expect(response).to redirect_to(root_path) }
+		end
+	end
 
 	describe "edit" do
 		let(:user) { FactoryGirl.create(:user) }
@@ -121,6 +156,8 @@ describe "User pages" do
 			it { should have_content("Update your profile") }
 			it { should have_title("Edit user") }
 			it { should have_link('change', href: 'http://gravatar.com/emails') }
+			specify { find_link('change')[:target].should == '_blank' }
+			it { should use_patch_method }
 		end
 
 		describe "with invalid information" do
@@ -145,6 +182,21 @@ describe "User pages" do
 			it { should have_link('Sign out', href: signout_path) }
 			specify { expect(user.reload.name).to  eq new_name }
 			specify { expect(user.reload.email).to eq new_email }
+		end
+
+		describe "forbidden attributes" do
+			let(:params) do
+				{ user: {
+					admin: true,
+					password: user.password,
+					password_confirmation: user.password
+				} }
+			end
+			before do
+				sign_in user, no_capybara: true
+				patch user_path(user), params
+			end
+			specify { expect(user.reload).not_to be_admin }
 		end
 	end
 

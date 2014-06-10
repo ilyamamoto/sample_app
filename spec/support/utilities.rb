@@ -30,3 +30,10 @@ def sign_in(user, options={})
 		click_button "Sign in"
 	end
 end
+
+RSpec::Matchers.define :use_patch_method do 
+	match do |page|
+		expect(page).to have_xpath('//input[@name="_method" and @value="patch"]') 
+	end
+end
+

@@ -16,6 +16,15 @@
 			<%=yield %>
 			<%= render 'layouts/footer' %>
 			<%= debug(params) if Rails.env.development? %>
+			<div id="request_dump" style="display: block;">
+				<%= request.body %>
+				<%= request.cookie_jar %>
+				<%= request.ip %>
+				<%= request.uuid %>
+				<%= request.raw_post %>
+				<%= request.original_url %>
+				<%= request.fullpath %>
+			</div>
 		</div>
 	</body>
 </html>
