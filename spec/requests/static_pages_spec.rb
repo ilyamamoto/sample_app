@@ -17,10 +17,11 @@ describe "Static Pages" do
 		it { should_not have_title('| Home') }
 
 		describe "for signed-in users" do
+			# 'Email already taken' error occurred when using Guard
 			let(:user) { FactoryGirl.create(:user) }
+			let!(:m1) {	FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum") }
+			let!(:m2) {	FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet") }
 			before do
-				FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
-				FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
 				sign_in user
 				visit root_path
 			end
@@ -29,6 +30,32 @@ describe "Static Pages" do
 				user.feed.each do |item|
 					expect(page).to have_selector("li##{item.id}", text: item.content)
 				end
+			end
+
+			describe "should count and show the user's microposts correctly" do
+				let(:micropost_count_string) { page.find(:xpath, '//span[@id="micropost_count"]').text }
+				describe "the case there're 2 microposts" do
+					it { expect(micropost_count_string).to match(/2 microposts/) }
+				end
+				describe "the case there's only 1 micropost" do
+					before { click_link('delete', match: :first) }
+					it { expect(micropost_count_string).to match(/micropost/) }
+					it { expect(micropost_count_string).not_to match(/microposts/) }
+				end
+
+			end
+
+			# pagination test based on List 9.33 in the tutorial
+			describe "pagination" do
+			#	before(:all) { 30.times { FactoryGirl.create(:micropost, user: user, content: "example") } }
+				#after(:all) { Micropost.delete_all }
+				
+				it "should list each micropost" do 
+			#		Micropost.paginate(page: 1).each do |micropost|
+			#			page.should have_selector('li', text: micropost.content)
+			#		end
+				end
+
 			end
 		end
 	end
