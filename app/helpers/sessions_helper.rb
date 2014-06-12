@@ -15,12 +15,20 @@ module SessionsHelper
 	end
 
 	def current_user
+		# here is the very definition of the (pseudo-)var 'current_user' and '@current_user', both available to every controller
 		remember_token = User.encrypt(cookies[:remember_token])
 		@current_user ||= User.find_by(remember_token: remember_token)
 	end
 
 	def current_user?(user)
 		user == current_user
+	end
+
+	def signed_in_user
+		unless signed_in?
+			store_location
+			redirect_to signin_url, notice: "Please sign in."
+		end
 	end
 
 	def sign_out

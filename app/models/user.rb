@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
+	def feed
+		#preparatory stage: only with microposts posted by the current_user
+		#the '?' sign needed to escape variable 'id' before inclusion into sql query, preventing sql-injection attacks	
+		Micropost.where("user_id = ?", id)
+	end
+
 	private
 		def create_remember_token
 			self.remember_token = User.encrypt(User.new_remember_token)
