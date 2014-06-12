@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :microposts, dependent: :destroy
 	has_secure_password # too much powerful: add password & password_confirmation, ensure the existence of password and equality, and the authentication, if the column 'password_digest' exists
 
 	before_save { self.email = email.downcase }
