@@ -18,6 +18,8 @@ describe RelationshipsController do
 		it "should respond with success" do
 			xhr :post, :create, relationship: { followed_id: other_user.id }
 			expect(response).to be_success
+			#test below not working for ajax for some reason
+			#expect(page).to have_button('Unfollow')
 		end
 	end
 
@@ -37,6 +39,8 @@ describe RelationshipsController do
 		it "should respond with success" do
 			xhr :delete, :destroy, id: relationship.id
 			expect(response).to be_success
+			#test below not working for ajax for some reason
+			#expect(page).to have_button('Follow')
 		end
 	end
 end
