@@ -1,0 +1,13 @@
+<aside class="span4">
+	<section>
+		<%= render 'shared/user_info' %>
+	</section>
+	<section>
+		<%= render 'shared/stats' %>
+	</section>
+	<% if !@micropost.nil? %>
+		<section>
+			<%= render 'shared/micropost_form' %>
+		</section>
+	<% end %>
+</aside>

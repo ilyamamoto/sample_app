@@ -71,6 +71,7 @@ describe "User pages" do
 		before { visit user_path(user) }
 		it { should have_content(user.name) }
 		it { should have_title(user.name) }
+		it { should_not have_link("view my profile") }
 
 		describe "microposts" do
 			it { should have_content(m1.content) }
@@ -85,6 +86,7 @@ describe "User pages" do
 			describe "when not following the user" do
 				before { visit user_path(other_user) }
 				it { expect(page).to have_button('Follow') }
+				it { should_not have_link("view my profile") }
 
 				describe "when following the user" do
 					#before { click_button('Follow') }

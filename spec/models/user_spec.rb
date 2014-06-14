@@ -5,7 +5,6 @@ describe User do
 	before {
 		@user = User.new(name: "Example User", email: "user@example.com",
 			password: "foobar", password_confirmation: "foobar")
-#		p @user.microposts.to_a
 	}
 
 	subject { @user }
@@ -149,12 +148,14 @@ describe User do
 			expect(@user.microposts.to_a).to eq [newer_micropost, older_micropost]
 		end
 
-		it "should destroy associated microposts" do
-			microposts = @user.microposts.to_a
-			@user.destroy
-			expect(microposts).not_to be_empty
-			microposts.each do |micropost|
-				expect(Micropost.where(id: micropost.id)).to be_empty
+		describe "when destroying users" do
+			it "should destroy associated microposts" do
+				microposts = @user.microposts.to_a
+				@user.destroy
+				expect(microposts).not_to be_empty
+				microposts.each do |micropost|
+					expect(Micropost.where(id: micropost.id)).to be_empty
+				end
 			end
 		end
 
@@ -177,6 +178,35 @@ describe User do
 			its(:feed) do
 				followed_user.microposts.each do |micropost|
 					should include(micropost)
+				end
+			end
+		end
+		
+		# Exercise 11.5.1: testing model dependency
+		describe "relationships/reverse relationships association" do
+			let(:other_user) { FactoryGirl.create(:user) }
+			before do 
+				@user.save
+				other_user.save
+				@user.follow!(other_user)
+				other_user.follow!(@user)
+			end
+
+			it "should destroy associated relationships" do
+				relationships = @user.relationships.to_a
+				@user.destroy
+				expect(relationships).not_to be_empty
+				relationships.each do |relationship|
+					expect(Relationship.where(id: relationship.id)).to be_empty
+				end
+			end
+
+			it "should destroy associated reverse relationships" do
+				reverse_relationships = @user.reverse_relationships.to_a
+				@user.destroy
+				expect(reverse_relationships).not_to be_empty
+				reverse_relationships.each do |reverse_relationship|
+					expect(Relationship.where(id: reverse_relationship.id)).to be_empty
 				end
 			end
 		end
