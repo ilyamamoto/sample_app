@@ -74,6 +74,18 @@ describe "AuthenticationPages" do
 						end
 					end
 				end
+
+				describe "in the RelationshipsController" do
+					describe "submitting to the create action" do
+						before { post relationships_path }
+						specify { expect(response).to redirect_to(signin_path) }
+					end
+
+					describe "submitting to the destroy action" do
+						before { delete relationship_path(1) }
+						specify { expect(response).to redirect_to(signin_path) }
+					end
+				end
 			end
 
 			describe "in the Users controller" do
@@ -96,6 +108,17 @@ describe "AuthenticationPages" do
 					before { visit root_path }
 					it { should_not have_link('Profile') }
 					it { should_not have_link('Settings') }
+				end
+
+				describe "visiting the following page" do
+					# is it ok to use 'following_user_path' before defining 'following' method in UsersController?
+					before { visit following_user_path(user) }
+					it { should have_title('Sign in') }
+				end
+
+				describe "visiting the followers page" do
+					before { visit followers_user_path(user) }
+					it { should have_title('Sign in') }
 				end
 			end
 

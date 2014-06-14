@@ -32,6 +32,18 @@ describe "Static Pages" do
 				end
 			end
 
+			describe "follower/following counts" do
+				let(:other_user) { FactoryGirl.create(:user) }
+				before do
+					other_user.follow!(user)
+					visit root_path
+				end
+
+				it { should have_link("0 following", href: following_user_path(user)) }
+				it { should have_link("1 followers", href: followers_user_path(user)) }
+			end
+
+			# Excercise 10
 			describe "should count and show the user's microposts correctly" do
 				let(:micropost_count_string) { page.find(:xpath, '//span[@id="micropost_count"]').text }
 				describe "the case there're 2 microposts" do
