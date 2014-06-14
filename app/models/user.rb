@@ -29,7 +29,8 @@ class User < ActiveRecord::Base
 	def feed
 		#preparatory stage: only with microposts posted by the current_user
 		#the '?' sign needed to escape variable 'id' before inclusion into sql query, preventing sql-injection attacks	
-		Micropost.where("user_id = ?", id)
+		#Micropost.where("user_id = ?", id)
+		Micropost.from_users_followed_by(self)
 	end
 
 	def following?(other_user)
